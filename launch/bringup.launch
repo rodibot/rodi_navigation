@@ -1,0 +1,9 @@
+<launch>
+  
+  <include file="$(find rodi_visual_localization)/launch/localize_rodi.launch"/>\
+
+  <!-- Little hack to convert from tf to pose for simple navigator -->
+  <node pkg="rodi_navigation" type="rodi_pose.py" name="rodi_pose"/>
+
+  <node pkg="rodi_navigation" type="rodi_simple_navigation.py" name="rodi_navigator" output="screen"/>  
+</launch>
